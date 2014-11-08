@@ -1,0 +1,5 @@
+[package]
+
+name = "ury_faked"
+version = "0.0.1"
+authors = ["Matt Windsor <matt.windsor@ury.org.uk>"]
