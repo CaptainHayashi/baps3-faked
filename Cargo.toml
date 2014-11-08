@@ -3,3 +3,9 @@
 name = "ury_faked"
 version = "0.0.1"
 authors = ["Matt Windsor <matt.windsor@ury.org.uk>"]
+
+[dependencies.toml]
+git = "https://github.com/alexcrichton/toml-rs"
+
+[dependencies.docopt_macros]
+git = "git://github.com/docopt/docopt.rs"
