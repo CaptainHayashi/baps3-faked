@@ -1,11 +1,13 @@
 [package]
 
-name = "ury_faked"
+name = "baps3_faked"
 version = "0.0.1"
 authors = ["Matt Windsor <matt.windsor@ury.org.uk>"]
 
-[dependencies.toml]
-git = "https://github.com/alexcrichton/toml-rs"
+[dependencies]
+docopt = "0.6.30"
+docopt_macros = "0.6.30"
+rustc-serialize = "0.2.7"
 
-[dependencies.docopt_macros]
-git = "git://github.com/docopt/docopt.rs"
+[dependencies.baps3_protocol]
+git = "https://github.com/UniversityRadioYork/baps3-protocol.rs.git"

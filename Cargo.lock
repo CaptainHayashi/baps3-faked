@@ -1,26 +1,42 @@
 [root]
-name = "ury_faked"
+name = "baps3_faked"
 version = "0.0.1"
 dependencies = [
- "docopt_macros 0.6.5 (git+git://github.com/docopt/docopt.rs)",
- "toml 0.1.0 (git+https://github.com/alexcrichton/toml-rs)",
+ "baps3_protocol 0.3.0 (git+https://github.com/UniversityRadioYork/baps3-protocol.rs.git)",
+ "docopt 0.6.30 (registry+https://github.com/rust-lang/crates.io-index)",
+ "docopt_macros 0.6.30 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.2.7 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
+
+[[package]]
+name = "baps3_protocol"
+version = "0.3.0"
+source = "git+https://github.com/UniversityRadioYork/baps3-protocol.rs.git#aaed8bfb94bee5a92b08af9dcbea3cd09379474c"
 
 [[package]]
 name = "docopt"
-version = "0.6.8"
-source = "git+git://github.com/docopt/docopt.rs#0b184b15ed5ea7e3c180b088e8f99baa4427f989"
-
-[[package]]
-name = "docopt_macros"
-version = "0.6.5"
-source = "git+git://github.com/docopt/docopt.rs#0b184b15ed5ea7e3c180b088e8f99baa4427f989"
+version = "0.6.30"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "docopt 0.6.8 (git+git://github.com/docopt/docopt.rs)",
+ "regex 0.1.10 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rustc-serialize 0.2.7 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
-name = "toml"
-version = "0.1.0"
-source = "git+https://github.com/alexcrichton/toml-rs#ac6f3b27e03e7a5938fd4cae5fc3fecc5ab1a85f"
+name = "docopt_macros"
+version = "0.6.30"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "docopt 0.6.30 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "regex"
+version = "0.1.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "rustc-serialize"
+version = "0.2.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
