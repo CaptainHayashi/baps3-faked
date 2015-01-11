@@ -16,6 +16,9 @@ use std::sync::mpsc;
 use baps3_protocol::proto;
 use baps3_protocol::server;
 
+/// Name used for OHAI as well as server announcements.
+static NAME: &'static str = "baps3-faked";
+
 docopt!(Args, "
 baps3-faked, a dummy BAPS3 service daemon
 
@@ -69,6 +72,8 @@ fn main() {
                           .decode()
                           .unwrap_or_else(|e| e.exit());
 
+    println!("{} is starting (listening on {})", NAME, &*args.flag_address);
+
     if let Err(e) = faked(args) {
         println!(
             "caught error: {} ({})",
@@ -76,16 +81,18 @@ fn main() {
             &*e.detail().unwrap_or("no additional info".to_owned())
         );
     }
+
+    println!("{} is terminating", NAME);
 }
 
 /// Says hi to a new connection.
 fn hi(addr: ip::SocketAddr, tx: mpsc::Sender<server::Response>)
   -> FakedResult<()> {
-    println!("new connection: {:?}", addr);
+    println!("new connection: {}", addr);
 
     try!(tx.send(server::Response::Unicast(
         addr,
-        proto::Message::new("OHAI", &["baps3-faked"])
+        proto::Message::new("OHAI", &[NAME])
     )));
     try!(tx.send(server::Response::Unicast(
         addr,
@@ -101,14 +108,14 @@ fn hi(addr: ip::SocketAddr, tx: mpsc::Sender<server::Response>)
 
 /// Reports on a lost connection.
 fn bye(addr: ip::SocketAddr) -> FakedResult<()> {
-    println!("lost connection: {:?}", addr);
+    println!("lost connection: {}", addr);
 
     Ok(())
 }
 
 /// Reports on a client message.
 fn msg(addr: ip::SocketAddr, m: proto::Message) -> FakedResult<()> {
-    println!("{:?} says: {} {:?}", addr, m.word(), m.args());
+    println!("{} says: {} {:?}", addr, m.word(), m.args());
 
     Ok(())
 }
