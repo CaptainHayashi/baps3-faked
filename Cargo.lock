@@ -11,7 +11,7 @@ dependencies = [
 [[package]]
 name = "baps3_protocol"
 version = "0.3.0"
-source = "git+https://github.com/UniversityRadioYork/baps3-protocol.rs.git#aaed8bfb94bee5a92b08af9dcbea3cd09379474c"
+source = "git+https://github.com/UniversityRadioYork/baps3-protocol.rs.git#bb17d51a05dfc97bc8f575b1d1c1a0afeae7b2ea"
 
 [[package]]
 name = "docopt"
