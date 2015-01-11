@@ -92,15 +92,15 @@ fn hi(addr: ip::SocketAddr, tx: mpsc::Sender<server::Response>)
 
     try!(tx.send(server::Response::Unicast(
         addr,
-        proto::Message::new("OHAI", &[NAME])
+        proto::Message::new("OHAI").arg(NAME)
     )));
     try!(tx.send(server::Response::Unicast(
         addr,
-        proto::Message::from_word("FEATURES")
+        proto::Message::new("FEATURES")
     )));
     try!(tx.send(server::Response::Unicast(
         addr,
-        proto::Message::new("STATE", &["Ready"])
+        proto::Message::new("STATE").arg("Ready")
     )));
 
     Ok(())
